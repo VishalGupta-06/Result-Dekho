@@ -21,6 +21,7 @@ function Home() {
   useEffect(() => {
     if (homeInfo) {
       setHomeData(homeInfo);
+      console.log(homeInfo);
     }
   }, [homeInfo]);
 
