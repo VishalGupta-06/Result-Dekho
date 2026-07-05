@@ -41,11 +41,11 @@ function LatestSubjects({ marks }) {
     const [ result , setResult ] = useState({});
 
     useEffect(()=>{
-      const index =sem === "ALL" ? marks.length - 1 : semMap.get(sem) - 1;
+      const index =sem === "ALL" ? marks?.length - 1 : semMap.get(sem) - 1;
 
       
 
-      if( marks.length >= index ){
+      if( marks?.length >= index ){
         setResult(marks[index]);
         // console.log(marks)
       }
