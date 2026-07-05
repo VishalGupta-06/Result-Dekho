@@ -5,14 +5,14 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash, FaLock, FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import api from "../utilities/Api.js";
-import OTP from "./OTP";
+import OTP from "./OTP.jsx";
 import { useContext } from "react";
-import UserContext from "../utilities/ContextApi";
+import UserContext from "../utilities/ContextApi.jsx";
 
 
 
 
-function SignUp() {
+function RecoverPassword() {
   const [registration, setRegistration] = useState(""); //Registration Number
   const [password, setPassword] = useState(""); //Password
   const [showPassword, setShowPassword] = useState(false);
@@ -39,7 +39,7 @@ function SignUp() {
 
     try {
       const response = await api.post(
-        "/api/updatepassword",
+        "/api/finalSignUp",
         {
           registration,
           password,
@@ -96,7 +96,7 @@ function SignUp() {
     e?.preventDefault();
     try {
       const response = await api.post(
-        "/api/signup",
+        "/api/recoverpassword",
         {
           registration,
         },
@@ -154,18 +154,10 @@ function SignUp() {
               NIT Jamshedpur CGPA Analyzer
             </p>
             <h1 className="mt-2 text-3xl sm:text-4xl font-bold text-slate-950">
-              Create Account
+              Recover Your Password
             </h1>
             <p className="mt-2 max-w-sm text-sm text-slate-500">
               Join the academic analytics dashboard for NIT Jamshedpur results.
-            </p>
-
-            <p className="text-slate-500 text-center pt-1 text-sm sm:text-base">
-              Already have account?
-              <span className="text-blue-600 ml-2 cursor-pointer font-semibold">
-                {" "}
-                <Link to="/login">Sign In</Link>{" "}
-              </span>
             </p>
           </div>
         </div>
@@ -256,35 +248,9 @@ function SignUp() {
             </form>
           </div>
         </div>
-
-        <div className="flex justify-center items-center px-5">
-          <div className="w-full flex justify-center items-center">
-            <div className="flex-1 border border-slate-200"></div>
-
-            <span className="mx-4 text-gray-400">OR</span>
-
-            <div className="flex-1 border border-slate-200"></div>
-          </div>
-        </div>
-
-        <div className="flex justify-center items-center px-5 py-6">
-          <div className="w-full flex justify-center items-center">
-            <button
-              className={`h-12 w-full border border-slate-200 rounded-lg flex justify-center items-center gap-3 hover:bg-slate-50 font-semibold text-slate-700 transition ${loading ? "cursor-wait" : "cursor-default"} `}
-              onClick={() => {
-                setLoading(true);
-                window.location.href = `${import.meta.env.VITE_BACKEND_URL}/auth/google`
-                setLoading(false);
-              }}
-            >
-              <FcGoogle size={25} />
-              Continue with Google ( College ID )
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );
 }
 
-export default SignUp;
+export default RecoverPassword;

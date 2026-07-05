@@ -11,6 +11,7 @@ import Compare from "./components/Compare/Compare.jsx";
 import ContactUs from "./components/ContactUs.jsx";
 import About from "./components/About.jsx";
 import GetInfo from "./utilities/GetInfo.js";
+import RecoverPassword from "./components/RecoverPassword.jsx";
 
 
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
@@ -19,7 +20,7 @@ function App() {
   const location = useLocation();
 
   const loginOpen =
-    location.pathname === "/login" || location.pathname === "/signup";
+    location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/recoverpassword";
 
   return (
     <>
@@ -48,6 +49,7 @@ function App() {
                 <Route path={"/about"} element={<About />} />
                 <Route path={"/login"} element={<Dashboard />} />
                 <Route path={"/signup"} element={<Dashboard />} />
+                <Route path={"/recoverpassword"} element={<Dashboard />} />
                 <Route path={"*"} element={<Navigate to="/" replace />} />
               </Routes>
             </div>
@@ -58,11 +60,11 @@ function App() {
       {/* Login Overlay */}
       {loginOpen && (
         <div className="fixed inset-0 flex justify-center items-center bg-black/40 backdrop-blur-sm z-50 p-4">
-          {location.pathname === "/login" ? (
-            <Login />
-          ) : (
-            <SignUp />
-          )}
+
+          {location.pathname === "/login" && <Login /> }
+          {location.pathname === "/signup" && <SignUp /> }
+          {location.pathname === "/recoverpassword" && <RecoverPassword/> }
+          
         </div>
       )}
      
