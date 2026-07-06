@@ -12,7 +12,7 @@ import ContactUs from "./components/ContactUs.jsx";
 import About from "./components/About.jsx";
 import GetInfo from "./utilities/GetInfo.js";
 import RecoverPassword from "./components/RecoverPassword.jsx";
-
+import { Analytics } from "@vercel/analytics/react";
 
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
@@ -67,7 +67,8 @@ function App() {
           
         </div>
       )}
-     
+      
+      <Analytics />
     </>
   );
 }
