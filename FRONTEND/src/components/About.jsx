@@ -120,8 +120,8 @@ function About() {
               </div>
               
               <div className="rounded-lg bg-slate-50 p-4">
-                <p className="font-bold text-slate-950">Akriti Burnwal & Shikha Verma</p>
-                <p className="font-bold text-slate-600"> (2024UGPI058 & 2024UGPI057) </p>
+                <p className="font-bold text-slate-950">Akriti Burnwal</p>
+                <p className="font-bold text-slate-600"> 2024UGPI058 </p>
                 <p className="mt-1 text-sm text-slate-600">Data Manage</p>
               </div>
               {/* <div className="rounded-lg bg-slate-50 p-4">
